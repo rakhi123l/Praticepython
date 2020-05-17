@@ -1,0 +1,61 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'gradingStudents' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY grades as parameter.
+#
+
+def gradingStudents(grades):
+    # Write your code here
+    remainder=0
+    k=[]
+
+
+    for i in range(len(grades)):
+        if grades[i]>=38:
+            remainder=(grades[i])%5
+            print (remainder)
+            if remainder!=0 and remainder>=3:
+                t=(remainder-1)+int(grades[i])
+                k.append(t)
+                print (t)
+            else:
+                t=grades[i]
+                k.append(t)
+                print (t)
+
+        else:
+            t=grades[i]
+            k.append(t)
+            print (t)
+
+
+    return k    
+
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    grades_count = int(input().strip())
+
+    grades = []
+
+    for _ in range(grades_count):
+        grades_item = int(input().strip())
+        grades.append(grades_item)
+
+    result = gradingStudents(grades)
+
+    fptr.write('\n'.join(map(int, result)))
+    fptr.write('\n')
+
+    fptr.close()

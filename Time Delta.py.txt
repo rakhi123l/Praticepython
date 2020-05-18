@@ -1,0 +1,15 @@
+# This is the code for timezone difference 
+# Your task is to print the absolute difference (in seconds) 
+# between them.
+# Since sometimes posts are published 
+# and viewed in different time zones, this can be confusing. 
+# You are given two timestamps of one such post 
+# that a user can see on his newsfeed in the following format
+
+from dateutil import parser
+
+for _ in range(int(input())):
+    d1 = parser.parse(input().strip())
+    d2 = parser.parse(input().strip())
+    print (d1, d2)
+    print(abs(int((d2-d1).total_seconds())))
